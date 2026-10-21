@@ -10,7 +10,7 @@
 [![Powered by Shelly](https://img.shields.io/badge/Powered_by-Shelly-4495D1.svg)](https://www.shelly.com/)
 [![Powered by Pushover](https://img.shields.io/badge/Powered_by-Pushover-0088FF.svg?logo=android&logoColor=white)](https://pushover.net/)
 
-[![Klimaanlage und Boiler Boost Titel](pictures/2026-10-20-edi-teppert-com-Klimaanlage-BoilerBoost-PV-Titel-2048x820.jpg)](pictures/2026-10-20-edi-teppert-com-Klimaanlage-BoilerBoost-PV-Titel-2048x820.jpg)
+[![Klimaanlage und Boiler Boost Titel](pictures/2026-10-20-edi-teppert-com-Klimaanlage-BoilerBoost-PV-Titel.png)](pictures/2026-10-20-edi-teppert-com-Klimaanlage-BoilerBoost-PV-Titel.png)
 
 ## 🌍 Language Selector / Sprachauswahl
 
