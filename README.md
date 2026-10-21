@@ -62,7 +62,7 @@ All values come from an **E3/DC home power station via MQTT** and directly from 
     - `@flowfuse/node-red-dashboard`
   - Account (optional): [Pushover](https://pushover.net/)
 
-[![Node-RED Flow Klimaanlage und Boiler Boost](pictures/2026-10-20-edi-teppert-com-Node-Red-Flow-Klimaanlage-BoilerBoost-1024x600.jpg)](pictures/2026-10-20-edi-teppert-com-Node-Red-Flow-Klimaanlage-BoilerBoost-1024x600.jpg) [![Node-RED Dashboard 2.0 Klimaanlage und Boiler Boost](pictures/2026-10-20-edi-teppert-com-Node-Red-Dashboard-2.0-Klimaanlage-BoilerBoost-785x1024.jpg)](pictures/2026-10-20-edi-teppert-com-Node-Red-Dashboard-2.0-Klimaanlage-BoilerBoost-785x1024.jpg)
+[![Node-RED Flow Klimaanlage und Boiler Boost](pictures/2026-10-20-edi-teppert-com-Node-Red-Flow-Klimaanlage-BoilerBoost.jpg)](pictures/2026-10-20-edi-teppert-com-Node-Red-Flow-Klimaanlage-BoilerBoost.jpg) [![Node-RED Dashboard 2.0 Klimaanlage und Boiler Boost](pictures/2026-10-20-edi-teppert-com-Node-Red-Dashboard-2.0-Klimaanlage-BoilerBoost-785x1024.jpg)](pictures/2026-10-20-edi-teppert-com-Node-Red-Dashboard-2.0-Klimaanlage-BoilerBoost-785x1024.jpg)
 
 ## Data Sources
 
