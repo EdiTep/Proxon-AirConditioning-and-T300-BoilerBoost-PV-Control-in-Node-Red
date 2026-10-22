@@ -96,7 +96,7 @@ The flow consists of four main parts:
 
 ### Import the Flow
 
-Copy the entire JSON array from [`flows/klimaanlage-boilerboost-pv-flow.json`](flows/klimaanlage-boilerboost-pv-flow.json) and paste it into the Node-RED editor (Menu → Import).
+Copy the entire JSON array from [`flows/Klimaanlage-BoilerBoost-PV-Flow.json`](flows/Klimaanlage-BoilerBoost-PV-Flow.json) and paste it into the Node-RED editor (Menu → Import).
 
 > ⚠️ **Important:** You must configure the following nodes with your own settings before the flow will work:
 >
