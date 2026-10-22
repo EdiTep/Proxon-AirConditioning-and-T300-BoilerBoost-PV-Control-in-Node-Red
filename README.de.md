@@ -203,6 +203,11 @@ Die Standardwerte gelten, bis ein Regler zum ersten Mal bewegt wurde.
 
 Fehler gefunden oder eine Idee zur Verbesserung? Gerne ein Issue eröffnen oder einen Pull Request senden. Ideen für Erweiterungen: ein PV-gesteuerter Heizbetrieb für kalte Tage oder die Unterstützung weiterer PV-Systeme.
 
+## Zukunfts Planung / Erweiterung
+
+als nächste Erweiterung für die kalte Jahreszeit soll die Heizfunktion der Proxon über Modbus gesteuert werden:
+Schaltet nur ein, wenn *Außentemperatur* **<** Schwelle **UND** *Akku-SOC* **≥** Schwelle **UND** *PV-Leistung* **>** Schwelle.
+
 ## 📫 Kontakt & Zusammenarbeit
 
 Ich freue mich über **Austausch, Feedback und Zusammenarbeit** – besonders zu Themen wie:
