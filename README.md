@@ -39,6 +39,9 @@ All values come from an **E3/DC home power station via MQTT** and directly from 
   - Cooling: minimum on-time **15 min**, minimum off-time **10 min**.
   - Boiler Boost: minimum on-time **10 min**, minimum off-time **10 min**.
 - **Pushover notifications** for every automatic switch-on / switch-off, including the current values and thresholds.
+
+[![Klimaanlage und Boiler Boost Oushover Nachricht](pictures/2026-10-20-edi-teppert-com-PushoverNachricht-Klimaanlage-BoilerBoost.jpg)](pictures/2026-10-20-edi-teppert-com-PushoverNachricht-Klimaanlage-BoilerBoost.jpg)
+
 - **Node-RED Dashboard 2.0**
   - Gauges: outside temperature, PV power, house consumption, battery SOC.
   - Status tiles: heat pump operating mode (Off / Summer / Winter / ECO), cooling function, Boiler Boost.
