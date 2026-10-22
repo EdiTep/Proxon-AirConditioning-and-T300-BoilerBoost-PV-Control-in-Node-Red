@@ -44,7 +44,7 @@ Die Werte kommen vom **E3/DC-Hauskraftwerk per MQTT** und direkt aus den **Proxo
   - Boiler Boost: Mindestlaufzeit **10 Min.**, Mindestpause **10 Min.**
 - **Pushover-Benachrichtigung** bei jedem automatischen Ein- und Ausschalten, inklusive aktueller Werte und Schwellen.
 
-- <p align="center">
+<p align="center">
   <a href="pictures/2026-10-20-edi-teppert-com-PushoverNachricht-Klimaanlage-BoilerBoost.jpg">
     <img src="pictures/2026-10-20-edi-teppert-com-PushoverNachricht-Klimaanlage-BoilerBoost.jpg"
          alt="Klimaanlage und Boiler Boost Pushover Nachricht" width="300"><br>
