@@ -164,9 +164,9 @@ Die Standardwerte gelten, bis ein Regler zum ersten Mal bewegt wurde.
 - `README.md` – Dokumentation (Englisch).
 - `README.de.md` – Diese Dokumentation (Deutsch).
 - `flows/klimaanlage-boilerboost-pv-flow.json` – Der exportierte Node-RED-Flow.
-- `pictures/2026-10-20-edi-teppert-com-Klimaanlage-BoilerBoost-PV-Titel-2048x820.jpg` – Bild in diesem Repo
-- `pictures/2026-10-20-edi-teppert-com-Node-Red-Flow-Klimaanlage-BoilerBoost-1024x600.jpg` – Bild in diesem Repo
-- `pictures/2026-10-20-edi-teppert-com-Node-Red-Dashboard-2.0-Klimaanlage-BoilerBoost-785x1024.jpg` – Bild in diesem Repo
+- `pictures/2026-10-20-edi-teppert-com-Klimaanlage-BoilerBoost-PV-Titel.png` – Bild in diesem Repo
+- `pictures/2026-10-20-edi-teppert-com-Node-Red-Flow-Klimaanlage-BoilerBoost.png` – Bild in diesem Repoo
+- `pictures/2026-10-20-edi-teppert-com-Node-Red-Dashboard-2.0-Klimaanlage-BoilerBoost.jpg` – Bild in diesem Repo
 - `pictures/Edis-Blog-IoT-Logo.png` – Bild in diesem Repo
 
 ## Flow-Struktur (vereinfacht)
