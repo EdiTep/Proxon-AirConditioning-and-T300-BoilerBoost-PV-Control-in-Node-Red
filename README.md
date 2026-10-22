@@ -39,15 +39,6 @@ All values come from an **E3/DC home power station via MQTT** and directly from 
   - Cooling: minimum on-time **15 min**, minimum off-time **10 min**.
   - Boiler Boost: minimum on-time **10 min**, minimum off-time **10 min**.
 - **Pushover notifications** for every automatic switch-on / switch-off, including the current values and thresholds.
-
-<p align="center">
-  <a href="pictures/2026-10-20-edi-teppert-com-PushoverNachricht-Klimaanlage-BoilerBoost.jpg">
-    <img src="pictures/2026-10-20-edi-teppert-com-PushoverNachricht-Klimaanlage-BoilerBoost.jpg"
-         alt="Cooling and Boiler Boost Pushover Message" width="300"><br>
-    <em>Pushover message when the BoilerBoost automatically shuts down</em>
-  </a>
-</p>
-
 - **Node-RED Dashboard 2.0**
   - Gauges: outside temperature, PV power, house consumption, battery SOC.
   - Status tiles: heat pump operating mode (Off / Summer / Winter / ECO), cooling function, Boiler Boost.
@@ -133,6 +124,13 @@ Copy the entire JSON array from [`flows/Klimaanlage-BoilerBoost-PV-Flow.json`](f
 ### 3. Set up notifications
 
 - Double-click one of the `pushover api` nodes and select or create the `pushover-keys` configuration with your application key and user key.
+<p align="center">
+  <a href="pictures/2026-10-20-edi-teppert-com-PushoverNachricht-Klimaanlage-BoilerBoost.jpg">
+    <img src="pictures/2026-10-20-edi-teppert-com-PushoverNachricht-Klimaanlage-BoilerBoost.jpg"
+         alt="Cooling and Boiler Boost Pushover Message" width="300"><br>
+    <em>Pushover message when the BoilerBoost automatically shuts down</em>
+  </a>
+</p>
 
 ### 4. Adjust thresholds (Dashboard)
 
