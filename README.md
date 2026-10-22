@@ -40,7 +40,10 @@ All values come from an **E3/DC home power station via MQTT** and directly from 
   - Boiler Boost: minimum on-time **10 min**, minimum off-time **10 min**.
 - **Pushover notifications** for every automatic switch-on / switch-off, including the current values and thresholds.
 
-[![Klimaanlage und Boiler Boost Oushover Nachricht](pictures/2026-10-20-edi-teppert-com-PushoverNachricht-Klimaanlage-BoilerBoost.jpg)](pictures/2026-10-20-edi-teppert-com-PushoverNachricht-Klimaanlage-BoilerBoost.jpg)
+- <a align="center" href="pictures/2026-10-20-edi-teppert-com-PushoverNachricht-Klimaanlage-BoilerBoost.jpg">
+  <img src="pictures/2026-10-20-edi-teppert-com-PushoverNachricht-Klimaanlage-BoilerBoost.jpg"
+       alt="Klimaanlage und Boiler Boost Pushover Nachricht" width="300">
+</a>
 
 - **Node-RED Dashboard 2.0**
   - Gauges: outside temperature, PV power, house consumption, battery SOC.
