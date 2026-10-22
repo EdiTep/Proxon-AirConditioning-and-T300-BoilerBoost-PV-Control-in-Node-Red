@@ -1,0 +1,1771 @@
+[
+    {
+        "id": "4d5eebb2427c385d",
+        "type": "mqtt in",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Verbrauch Watt (Klima)",
+        "topic": "Haus/Keller/e3dc/home/power",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "88539582a8a310de",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 183,
+        "y": 300,
+        "wires": [
+            [
+                "d42443b2e76c9b39",
+                "5e4011865fb5db4e"
+            ]
+        ]
+    },
+    {
+        "id": "7a66bddb28c980f9",
+        "type": "mqtt in",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Einspeisung Watt (Klima)",
+        "topic": "Haus/Keller/e3dc/solar/power",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "88539582a8a310de",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 193,
+        "y": 340,
+        "wires": [
+            [
+                "9fc95f3a9013b8a5",
+                "165120807ab9faf3"
+            ]
+        ]
+    },
+    {
+        "id": "d42443b2e76c9b39",
+        "type": "change",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Verbrauch merken",
+        "rules": [
+            {
+                "t": "set",
+                "p": "verbrauch",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 340,
+        "wires": [
+            [
+                "06de1a390e33415c",
+                "acr0000000000001"
+            ]
+        ]
+    },
+    {
+        "id": "9fc95f3a9013b8a5",
+        "type": "change",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Einspeisung merken",
+        "rules": [
+            {
+                "t": "set",
+                "p": "einspeisung",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 380,
+        "wires": [
+            [
+                "06de1a390e33415c",
+                "5538e6862f0bfced"
+            ]
+        ]
+    },
+    {
+        "id": "f67cfd13c78d8186",
+        "type": "change",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Akku merken",
+        "rules": [
+            {
+                "t": "set",
+                "p": "akku",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 420,
+        "wires": [
+            [
+                "06de1a390e33415c",
+                "5538e6862f0bfced"
+            ]
+        ]
+    },
+    {
+        "id": "5e4011865fb5db4e",
+        "type": "ui-gauge",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Hausverbrauch",
+        "group": "9eb5b27fb34938fb",
+        "order": 4,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "3",
+        "height": "3",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Hausverbrauch",
+        "alwaysShowTitle": false,
+        "units": "W",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "500",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "1000",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "2000",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "500",
+        "max": "2500",
+        "sizeThickness": "12",
+        "sizeGap": "4",
+        "sizeKeyThickness": "8",
+        "className": "",
+        "x": 200,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "165120807ab9faf3",
+        "type": "ui-gauge",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "PV Einspeisung",
+        "group": "9eb5b27fb34938fb",
+        "order": 3,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "3",
+        "height": "3",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "PV-Einspeisung",
+        "alwaysShowTitle": false,
+        "units": "W",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "1000",
+                "color": "#73fdff",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "3000",
+                "color": "#0432ff",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "5000",
+                "color": "#8df900",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "6500",
+                "color": "#008e00",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "1000",
+        "max": "8000",
+        "sizeThickness": "12",
+        "sizeGap": "4",
+        "sizeKeyThickness": "8",
+        "className": "",
+        "x": 200,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "62cb46be032a779c",
+        "type": "ui-gauge",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Akku Ladung",
+        "group": "9eb5b27fb34938fb",
+        "order": 5,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "3",
+        "height": "2",
+        "gtype": "gauge-battery",
+        "title": "Akku Ladung",
+        "alwaysShowTitle": false,
+        "units": "",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "40",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "70",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "sizeThickness": "",
+        "sizeGap": "",
+        "sizeKeyThickness": "",
+        "className": "",
+        "x": 190,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4148e36565bc2d45",
+        "type": "ui-slider",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "group": "9eb5b27fb34938fb",
+        "name": "Akku-Schwelle",
+        "label": "Klima Akku-Schwelle (%)",
+        "tooltip": "Minimaler Akku-Ladestand, damit die Klimaanlage laufen darf",
+        "order": 9,
+        "width": "3",
+        "height": "2",
+        "passthru": true,
+        "outs": "end",
+        "topic": "akkuSchwelle",
+        "topicType": "str",
+        "thumbLabel": "always",
+        "showTicks": "false",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "className": "",
+        "iconPrepend": "",
+        "iconAppend": "",
+        "color": "",
+        "colorTrack": "",
+        "colorThumb": "",
+        "showTextField": false,
+        "x": 440,
+        "y": 560,
+        "wires": [
+            [
+                "2e92049ef791764b",
+                "cch0000000000001"
+            ]
+        ]
+    },
+    {
+        "id": "ff86a3a14e31a069",
+        "type": "ui-slider",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "group": "9eb5b27fb34938fb",
+        "name": "Einspeisung-Schwelle",
+        "label": "Einspeisung-Schwelle (W)",
+        "tooltip": "Minimale PV-Einspeisung, damit die Klimaanlage laufen darf",
+        "order": 10,
+        "width": "3",
+        "height": "2",
+        "passthru": true,
+        "outs": "end",
+        "topic": "einspeisungSchwelle",
+        "topicType": "str",
+        "thumbLabel": "always",
+        "showTicks": "false",
+        "min": 0,
+        "max": 5000,
+        "step": 50,
+        "className": "",
+        "iconPrepend": "",
+        "iconAppend": "",
+        "color": "",
+        "colorTrack": "",
+        "colorThumb": "",
+        "showTextField": false,
+        "x": 460,
+        "y": 520,
+        "wires": [
+            [
+                "c9c12dde50a97fbd",
+                "cch0000000000001"
+            ]
+        ]
+    },
+    {
+        "id": "60603fd82691733e",
+        "type": "ui-slider",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "group": "9eb5b27fb34938fb",
+        "name": "Verbrauch-Schwelle",
+        "label": "Verbrauch-Schwelle AC-Erkennung (W)",
+        "tooltip": "Ab diesem Hausverbrauch wird angenommen, dass die Klimaanlage läuft",
+        "order": 11,
+        "width": "3",
+        "height": "2",
+        "passthru": true,
+        "outs": "end",
+        "topic": "verbrauchSchwelle",
+        "topicType": "str",
+        "thumbLabel": "always",
+        "showTicks": "false",
+        "min": 0,
+        "max": 3000,
+        "step": 50,
+        "className": "",
+        "iconPrepend": "",
+        "iconAppend": "",
+        "color": "",
+        "colorTrack": "",
+        "colorThumb": "",
+        "showTextField": false,
+        "x": 460,
+        "y": 480,
+        "wires": [
+            [
+                "cch0000000000001",
+                "2d9bc438d3ad3563"
+            ]
+        ]
+    },
+    {
+        "id": "2e92049ef791764b",
+        "type": "change",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Akku-Schwelle merken",
+        "rules": [
+            {
+                "t": "set",
+                "p": "akkuSchwelle",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 810,
+        "y": 560,
+        "wires": [
+            [
+                "06de1a390e33415c"
+            ]
+        ]
+    },
+    {
+        "id": "c9c12dde50a97fbd",
+        "type": "change",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Einspeisung-Schwelle merken",
+        "rules": [
+            {
+                "t": "set",
+                "p": "einspeisungSchwelle",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 520,
+        "wires": [
+            [
+                "06de1a390e33415c"
+            ]
+        ]
+    },
+    {
+        "id": "2d9bc438d3ad3563",
+        "type": "change",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Verbrauch-Schwelle merken",
+        "rules": [
+            {
+                "t": "set",
+                "p": "verbrauchSchwelle",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 800,
+        "y": 480,
+        "wires": [
+            [
+                "06de1a390e33415c",
+                "acr0000000000001"
+            ]
+        ]
+    },
+    {
+        "id": "bcb54d68bee46f36",
+        "type": "debug",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Klima Alarm Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 1188,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "d83ddbd0f2801f7d",
+        "type": "pushover api",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "keys": "13d7f9e6fd4a0fe1",
+        "title": "Pushover (Klimaanlage Status)",
+        "name": "Pushover (Klimaanlage Status)",
+        "x": 1168,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "2f69edd60ef87cdf",
+        "type": "mqtt in",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "PV-Boiler Boost Status",
+        "topic": "Haus/Keller/Shelly/PVBoiler/command/switch:0",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "88539582a8a310de",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 183,
+        "y": 260,
+        "wires": [
+            [
+                "17a1e23f92f95648",
+                "8ebd6e2f9ee0041c",
+                "98d12469c3b213f6"
+            ]
+        ]
+    },
+    {
+        "id": "17a1e23f92f95648",
+        "type": "change",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Boiler-Boost merken",
+        "rules": [
+            {
+                "t": "set",
+                "p": "boilerBoostOn",
+                "pt": "flow",
+                "to": "$boolean(payload = \"on\")",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 300,
+        "wires": [
+            [
+                "06de1a390e33415c"
+            ]
+        ]
+    },
+    {
+        "id": "06de1a390e33415c",
+        "type": "function",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "AC-Bedingung pruefen & schalten (Hysterese)",
+        "func": "// Aktuelle Werte aus dem Flow-Kontext lesen (0/false, falls noch nichts empfangen wurde)\nvar verbrauch = flow.get('verbrauch') || 0;\nvar einspeisung = flow.get('einspeisung') || 0;\nvar akku = flow.get('akku') || 0;\nvar boilerBoostOn = flow.get('boilerBoostOn') || false;\nvar aussenTemp = flow.get('aussenTemp'); // undefined, solange noch kein Wert vom Proxon-Fuehler da war\n\n// Schwellwerte aus dem Flow-Kontext lesen (Defaults, falls Regler noch nicht bewegt wurden)\nvar akkuSchwelle = flow.get('akkuSchwelle');\nif (akkuSchwelle === undefined) { akkuSchwelle = 90; }\nvar einspeisungSchwelle = flow.get('einspeisungSchwelle');\nif (einspeisungSchwelle === undefined) { einspeisungSchwelle = 1200; }\nvar aussenTempSchwelle = flow.get('aussenTempSchwelle');\nif (aussenTempSchwelle === undefined) { aussenTempSchwelle = 25; } // Default, bis der Regler bewegt wurde\n\n// Ohne gueltigen Temperaturwert bleibt die Bedingung sicherheitshalber \"nicht erfuellt\"\nvar temperaturOk = (aussenTemp !== undefined) && (aussenTemp > aussenTempSchwelle);\nvar bedingungOk = temperaturOk && (akku >= akkuSchwelle) && (einspeisung > einspeisungSchwelle);\nflow.set('acBedingungOk', bedingungOk); // fuer den Node \"AC-Erinnerung pruefen\"\n\n// --- Hysterese ---\n// Mindestlaufzeit, bevor wieder ausgeschaltet werden darf (schont den Kompressor)\nvar MIN_EIN_MS = 15 * 60 * 1000;\n// Mindestpause, bevor wieder eingeschaltet werden darf\nvar MIN_AUS_MS = 10 * 60 * 1000;\n\nvar jetzt = Date.now();\nvar acState = flow.get('acState') || false;       // Soll-Zustand der Klimafunktion (von uns geschaltet)\nvar stateSeit = flow.get('acStateSeit') || 0;      // Zeitpunkt des letzten Zustandswechsels\n\nvar neuerState = acState;\n\nif (!acState && bedingungOk) {\n    // Einschalten nur erlaubt, wenn Mindestpause seit dem letzten Ausschalten vorbei ist\n    if (stateSeit === 0 || (jetzt - stateSeit) >= MIN_AUS_MS) {\n        neuerState = true;\n    }\n} else if (acState && !bedingungOk) {\n    // Ausschalten nur erlaubt, wenn Mindestlaufzeit seit dem letzten Einschalten vorbei ist\n    if ((jetzt - stateSeit) >= MIN_EIN_MS) {\n        neuerState = false;\n    }\n}\n\nif (neuerState !== acState) {\n    flow.set('acState', neuerState);\n    flow.set('acStateSeit', jetzt);\n\n    var aussenTempText = (aussenTemp !== undefined) ? (aussenTemp + \" °C (Min. \" + aussenTempSchwelle + \" °C)\") : \"unbekannt\";\n    var statusText = neuerState\n        ? \"Klimaanlage wird automatisch EINgeschaltet.\\nAussentemperatur: \" + aussenTempText + \"\\nAkku: \" + akku + \"% (Min. \" + akkuSchwelle + \"%)\\nEinspeisung: \" + einspeisung + \" W (Min. \" + einspeisungSchwelle + \" W)\"\n        : \"Klimaanlage wird automatisch AUSgeschaltet.\\nAussentemperatur: \" + aussenTempText + \"\\nAkku: \" + akku + \"% / Einspeisung: \" + einspeisung + \" W\";\n\n    // Ausgang 1: Betriebsart schreiben (Unit 41, Holding-Register 16) - 0=Aus, 1=Sommerbetrieb\n    var msgBetriebsart = { payload: [ neuerState ? 1 : 0 ] };\n\n    // Ausgang 2: Kuehlung freigeben (Unit 41, Holding-Register 62) - 0=AUS, 1=AN\n    var msgKuehlung = { payload: [ neuerState ? 1 : 0 ] };\n\n    // Ausgang 3: Pushover-Benachrichtigung ueber die Schaltung\n    var msgPush = { payload: statusText, title: \"Klimaanlage \" + (neuerState ? \"eingeschaltet\" : \"ausgeschaltet\") };\n\n    node.status({ fill: neuerState ? \"green\" : \"grey\", shape: \"dot\", text: neuerState ? \"AN geschaltet\" : \"AUS geschaltet\" });\n    return [msgBetriebsart, msgKuehlung, msgPush];\n} else {\n    var statusLabel = acState ? \"AN (Hysterese aktiv)\" : \"AUS (Hysterese aktiv)\";\n    if (!temperaturOk) { statusLabel += aussenTemp === undefined ? \" - Temp. unbekannt\" : \" - zu kalt\"; }\n    node.status({ fill: acState ? \"green\" : \"grey\", shape: \"ring\", text: statusLabel });\n    return [null, null, null];\n}\n",
+        "outputs": 3,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 320,
+        "wires": [
+            [
+                "c827da08278bc3f4"
+            ],
+            [
+                "60f2208ebaf3deaa"
+            ],
+            [
+                "d83ddbd0f2801f7d",
+                "bcb54d68bee46f36"
+            ]
+        ]
+    },
+    {
+        "id": "80b7196bbdb7c7e6",
+        "type": "ui-gauge",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Zustand Boiler Boost",
+        "group": "9eb5b27fb34938fb",
+        "order": 8,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "3",
+        "height": "2",
+        "gtype": "gauge-tile",
+        "gstyle": "needle",
+        "title": "Zustand Boiler Boost",
+        "alwaysShowTitle": true,
+        "floatingTitlePosition": "top-right",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "1",
+                "color": "#5cd65c",
+                "text": "AN",
+                "textType": "str"
+            },
+            {
+                "from": "0",
+                "color": "#ff2600",
+                "text": "AUS",
+                "textType": "str"
+            }
+        ],
+        "min": 0,
+        "max": "1",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 840,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8ebd6e2f9ee0041c",
+        "type": "debug",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Boiler Boost on/off",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 1188,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "98d12469c3b213f6",
+        "type": "change",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "on zu 1 / off zu 0",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "on",
+                "fromt": "str",
+                "to": "1",
+                "tot": "num"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "off",
+                "fromt": "str",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 260,
+        "wires": [
+            [
+                "80b7196bbdb7c7e6"
+            ]
+        ]
+    },
+    {
+        "id": "c827da08278bc3f4",
+        "type": "modbus-write",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "U41 Betriebsart schreiben (Holding 16)",
+        "showStatusActivities": false,
+        "showErrors": true,
+        "unitid": "41",
+        "dataType": "HoldingRegister",
+        "adr": "16",
+        "quantity": "1",
+        "server": "522b07f7dd585fbb",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "x": 810,
+        "y": 420,
+        "wires": [
+            [
+                "958949c9e7156670"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "60f2208ebaf3deaa",
+        "type": "modbus-write",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "U41 Kuehlung freigeben (Holding 62)",
+        "showStatusActivities": false,
+        "showErrors": true,
+        "unitid": "41",
+        "dataType": "HoldingRegister",
+        "adr": "62",
+        "quantity": "1",
+        "server": "522b07f7dd585fbb",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "x": 810,
+        "y": 380,
+        "wires": [
+            [
+                "958949c9e7156670"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "958949c9e7156670",
+        "type": "debug",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Klima Schalt-Log",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 1188,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "f8ad2f8ddf086779",
+        "type": "link in",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "<- WP/Klima Status",
+        "links": [
+            "7503efa471bfc449"
+        ],
+        "x": 395,
+        "y": 160,
+        "wires": [
+            [
+                "326339aa8fbbd22f",
+                "46bb341f6b6cc450",
+                "fc1c3c3de40113bf"
+            ]
+        ]
+    },
+    {
+        "id": "326339aa8fbbd22f",
+        "type": "change",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "WP-Wert extrahieren",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.wpBetriebsart",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 140,
+        "wires": [
+            [
+                "0a0cf8d8e1acde4d"
+            ]
+        ]
+    },
+    {
+        "id": "46bb341f6b6cc450",
+        "type": "change",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Klima-Wert extrahieren",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.klima",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 180,
+        "wires": [
+            [
+                "aecba858b0f54423"
+            ]
+        ]
+    },
+    {
+        "id": "0a0cf8d8e1acde4d",
+        "type": "ui-gauge",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Betriebsart Waermepumpe",
+        "group": "9eb5b27fb34938fb",
+        "order": 6,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "3",
+        "height": "2",
+        "gtype": "gauge-tile",
+        "gstyle": "needle",
+        "title": "Betriebsart Wärmepumpe",
+        "alwaysShowTitle": true,
+        "floatingTitlePosition": "top-right",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#9e9e9e",
+                "text": "Aus",
+                "textType": "str"
+            },
+            {
+                "from": "1",
+                "color": "#00aaff",
+                "text": "Sommer",
+                "textType": "str"
+            },
+            {
+                "from": "2",
+                "color": "#ff8c00",
+                "text": "Winter",
+                "textType": "str"
+            },
+            {
+                "from": "3",
+                "color": "#5cd65c",
+                "text": "ECO",
+                "textType": "str"
+            }
+        ],
+        "min": 0,
+        "max": "3",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 860,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aecba858b0f54423",
+        "type": "ui-gauge",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Zustand Klimafunktion",
+        "group": "9eb5b27fb34938fb",
+        "order": 7,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "3",
+        "height": "2",
+        "gtype": "gauge-tile",
+        "gstyle": "needle",
+        "title": "Klimafunktion",
+        "alwaysShowTitle": true,
+        "floatingTitlePosition": "top-right",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "1",
+                "color": "#5cd65c",
+                "text": "AN",
+                "textType": "str"
+            },
+            {
+                "from": "0",
+                "color": "#ff2600",
+                "text": "AUS",
+                "textType": "str"
+            }
+        ],
+        "min": 0,
+        "max": "1",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 840,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fc1c3c3de40113bf",
+        "type": "change",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Aussentemp merken",
+        "rules": [
+            {
+                "t": "set",
+                "p": "aussenTemp",
+                "pt": "flow",
+                "to": "payload.aussenTemp",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.aussenTemp",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 220,
+        "wires": [
+            [
+                "ad4decfc541c2704",
+                "06de1a390e33415c"
+            ]
+        ]
+    },
+    {
+        "id": "ad4decfc541c2704",
+        "type": "ui-gauge",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Aussenfuehler Waermepumpe",
+        "group": "9eb5b27fb34938fb",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "3",
+        "height": "3",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Außenfühler (Wärmepumpe)",
+        "alwaysShowTitle": false,
+        "units": "°C",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "10",
+                "color": "#73fdff",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "25",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "35",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "42",
+        "sizeThickness": "12",
+        "sizeGap": "4",
+        "sizeKeyThickness": "8",
+        "className": "",
+        "x": 870,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1372ac278f70ba45",
+        "type": "ui-slider",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "group": "9eb5b27fb34938fb",
+        "name": "Aussentemperatur-Schwelle",
+        "label": "Außentemperatur-Schwelle (°C)",
+        "tooltip": "Ab dieser Aussentemperatur darf die Klimafunktion ueberhaupt aktiv werden",
+        "order": 12,
+        "width": "3",
+        "height": "2",
+        "passthru": true,
+        "outs": "end",
+        "topic": "aussenTempSchwelle",
+        "topicType": "str",
+        "thumbLabel": "always",
+        "showTicks": "false",
+        "min": 15,
+        "max": 35,
+        "step": 0.5,
+        "className": "",
+        "iconPrepend": "",
+        "iconAppend": "",
+        "color": "",
+        "colorTrack": "",
+        "colorThumb": "",
+        "showTextField": false,
+        "x": 480,
+        "y": 600,
+        "wires": [
+            [
+                "02a357e9a2fbe99d",
+                "cch0000000000001"
+            ]
+        ]
+    },
+    {
+        "id": "02a357e9a2fbe99d",
+        "type": "change",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Aussentemperatur-Schwelle merken",
+        "rules": [
+            {
+                "t": "set",
+                "p": "aussenTempSchwelle",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 770,
+        "y": 600,
+        "wires": [
+            [
+                "06de1a390e33415c"
+            ]
+        ]
+    },
+    {
+        "id": "dfec83dd3f7bdbc9",
+        "type": "ui-slider",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "group": "9eb5b27fb34938fb",
+        "name": "Boiler-Akku-Schwelle",
+        "label": "Boiler-Boost Akku-Schwelle (%)",
+        "tooltip": "Minimaler Akku-Ladestand, damit der Boiler-Boost starten darf",
+        "order": 13,
+        "width": "3",
+        "height": "2",
+        "passthru": true,
+        "outs": "end",
+        "topic": "boilerAkkuSchwelle",
+        "topicType": "str",
+        "thumbLabel": "always",
+        "showTicks": "false",
+        "min": 20,
+        "max": 100,
+        "step": 2,
+        "className": "",
+        "iconPrepend": "",
+        "iconAppend": "",
+        "color": "",
+        "colorTrack": "",
+        "colorThumb": "",
+        "showTextField": false,
+        "x": 460,
+        "y": 640,
+        "wires": [
+            [
+                "b949034aae6b3f52",
+                "cch0000000000001"
+            ]
+        ]
+    },
+    {
+        "id": "b949034aae6b3f52",
+        "type": "change",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Boiler-Akku-Schwelle merken",
+        "rules": [
+            {
+                "t": "set",
+                "p": "boilerAkkuSchwelle",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 640,
+        "wires": [
+            [
+                "5538e6862f0bfced"
+            ]
+        ]
+    },
+    {
+        "id": "abd3d04f3d804d5a",
+        "type": "ui-slider",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "group": "9eb5b27fb34938fb",
+        "name": "Boiler-Solar-Schwelle",
+        "label": "Boiler-Boost Einspeisung-Schwelle (W)",
+        "tooltip": "Minimale PV-Einspeisung, damit der Boiler-Boost starten darf",
+        "order": 14,
+        "width": "3",
+        "height": "2",
+        "passthru": true,
+        "outs": "end",
+        "topic": "boilerSolarSchwelle",
+        "topicType": "str",
+        "thumbLabel": "always",
+        "showTicks": "false",
+        "min": 150,
+        "max": 3000,
+        "step": 25,
+        "className": "",
+        "iconPrepend": "",
+        "iconAppend": "",
+        "color": "",
+        "colorTrack": "",
+        "colorThumb": "",
+        "showTextField": false,
+        "x": 460,
+        "y": 680,
+        "wires": [
+            [
+                "46734c82f012dce5",
+                "cch0000000000001"
+            ]
+        ]
+    },
+    {
+        "id": "46734c82f012dce5",
+        "type": "change",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Boiler-Solar-Schwelle merken",
+        "rules": [
+            {
+                "t": "set",
+                "p": "boilerSolarSchwelle",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 680,
+        "wires": [
+            [
+                "5538e6862f0bfced"
+            ]
+        ]
+    },
+    {
+        "id": "5538e6862f0bfced",
+        "type": "function",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Boiler-Boost pruefen & schalten (Hysterese)",
+        "func": "// Aktuelle Werte aus dem Flow-Kontext (werden schon von den bestehenden MQTT-Nodes gepflegt)\nvar akku = flow.get('akku') || 0;\nvar einspeisung = flow.get('einspeisung') || 0;\n\n// Schwellwerte (Regler), mit den bisherigen Shelly-Flow-Defaults als Fallback\nvar akkuSchwelle = flow.get('boilerAkkuSchwelle');\nif (akkuSchwelle === undefined) { akkuSchwelle = 50; }\nvar solarSchwelle = flow.get('boilerSolarSchwelle');\nif (solarSchwelle === undefined) { solarSchwelle = 800; }\n\nvar bedingungOk = (akku >= akkuSchwelle) && (einspeisung >= solarSchwelle);\n\n// --- Hysterese ---\nvar MIN_EIN_MS = 10 * 60 * 1000;  // mind. 10 Min. an bleiben\nvar MIN_AUS_MS = 10 * 60 * 1000;  // mind. 10 Min. aus bleiben, bevor wieder eingeschaltet wird\n\nvar jetzt = Date.now();\nvar boostState = flow.get('boilerBoostState') || false;\nvar stateSeit = flow.get('boilerBoostStateSeit') || 0;\n\nvar neuerState = boostState;\n\nif (!boostState && bedingungOk) {\n    if (stateSeit === 0 || (jetzt - stateSeit) >= MIN_AUS_MS) {\n        neuerState = true;\n    }\n} else if (boostState && !bedingungOk) {\n    if ((jetzt - stateSeit) >= MIN_EIN_MS) {\n        neuerState = false;\n    }\n}\n\nif (neuerState !== boostState) {\n    flow.set('boilerBoostState', neuerState);\n    flow.set('boilerBoostStateSeit', jetzt);\n\n    var statusText = neuerState\n        ? \"Boiler-Boost wird automatisch EINgeschaltet.\\nAkku: \" + akku + \"% (Min. \" + akkuSchwelle + \"%)\\nEinspeisung: \" + einspeisung + \" W (Min. \" + solarSchwelle + \" W)\"\n        : \"Boiler-Boost wird automatisch AUSgeschaltet.\\nAkku: \" + akku + \"% / Einspeisung: \" + einspeisung + \" W\";\n\n    // Ausgang 1: Shelly per MQTT schalten (gleiches Topic wie bisher, retained)\n    var msgShelly = { topic: \"Haus/Keller/Shelly/PVBoiler/command/switch:0\", payload: neuerState ? \"on\" : \"off\" };\n\n    // Ausgang 2: Pushover-Meldung\n    var msgPush = { payload: statusText, title: \"Boiler-Boost \" + (neuerState ? \"eingeschaltet\" : \"ausgeschaltet\") };\n\n    node.status({ fill: neuerState ? \"green\" : \"grey\", shape: \"dot\", text: neuerState ? \"AN geschaltet\" : \"AUS geschaltet\" });\n    return [msgShelly, msgPush];\n} else {\n    node.status({ fill: boostState ? \"green\" : \"grey\", shape: \"ring\", text: boostState ? \"AN (Hysterese aktiv)\" : \"AUS (Hysterese aktiv)\" });\n    return [null, null];\n}\n",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1150,
+        "y": 500,
+        "wires": [
+            [
+                "c7ad345458a982f8"
+            ],
+            [
+                "b3473b8999ad8a74"
+            ]
+        ]
+    },
+    {
+        "id": "c7ad345458a982f8",
+        "type": "mqtt out",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "ShellyPlus1 PV Vorrang Boiler BOOST",
+        "topic": "",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "88539582a8a310de",
+        "x": 1192,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "b3473b8999ad8a74",
+        "type": "pushover api",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "keys": "13d7f9e6fd4a0fe1",
+        "title": "Pushover (Boiler-Boost Status)",
+        "name": "Pushover (Boiler-Boost Status)",
+        "x": 1192,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "384ff4b284fc8aae",
+        "type": "modbus-read",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "U41 input 195-223",
+        "topic": "41|input|195|29",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": true,
+        "showWarnings": true,
+        "unitid": "41",
+        "dataType": "InputRegister",
+        "adr": "195",
+        "quantity": "29",
+        "rate": "5",
+        "rateUnit": "m",
+        "delayOnStart": false,
+        "enableDeformedMessages": false,
+        "startDelayTime": "",
+        "server": "522b07f7dd585fbb",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 190,
+        "y": 180,
+        "wires": [
+            [],
+            [
+                "787e020765f92073"
+            ]
+        ]
+    },
+    {
+        "id": "c25519e9f597aad2",
+        "type": "modbus-read",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "U41 holding 62-70",
+        "topic": "41|holding|62|9",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": true,
+        "showWarnings": true,
+        "unitid": "41",
+        "dataType": "HoldingRegister",
+        "adr": "62",
+        "quantity": "9",
+        "rate": "5",
+        "rateUnit": "m",
+        "delayOnStart": false,
+        "enableDeformedMessages": false,
+        "startDelayTime": "",
+        "server": "522b07f7dd585fbb",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 190,
+        "y": 140,
+        "wires": [
+            [],
+            [
+                "787e020765f92073"
+            ]
+        ]
+    },
+    {
+        "id": "787e020765f92073",
+        "type": "function",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Register decodieren",
+        "func": "// Automatisch generierte Register-Map (Adresse, Name, Skalierung, Offset, Einheit, Signed)\nconst REG_MAP = [[41, 0, 16, \"Betriebsart 0= Aus 1= Sommerbetrieb 2= Winterbetrieb 3= ECO-\", 1.0, 0.0, \"\", false], [41, 0, 22, \"Lüfterstufe in Sommer / Winter Modus, Test 1=LS1, 2=LS2, 3=L\", 1.0, 0.0, \"\", false], [41, 0, 62, \"K(cid:129)ühlung freigabe\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 70, \"Soll Temperatur Zone 1 (EG)\", 100.0, 0.0, \"°C\", true], [41, 0, 405, \"Kom\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 133, \"Intensivluftung\", 1.0, 0.0, \"Minuten\", false], [41, 0, 398, \"Air m3/h K faktor\", 1000.0, 0.0, \"\", false], [41, 0, 189, \"Intensivlüftung Zeit E1/E2 input\", 1.0, 0.0, \"Minuten\", false], [41, 0, 394, \"CO2/RF Sensor 1 Raum\", 1.0, 0.0, \"\", false], [41, 0, 395, \"CO2/RF Sensor 2 Raum\", 1.0, 0.0, \"\", false], [41, 0, 396, \"CO2/RF Sensor 3 Raum\", 1.0, 0.0, \"\", false], [41, 0, 397, \"CO2/RF Sensor 4 Raum\", 1.0, 0.0, \"\", false], [41, 0, 466, \"CO2/RF Sensor 5 Raum\", 1.0, 0.0, \"\", false], [41, 0, 117, \"CO2 Schwelle (bei hoch CO2, Lüfterstufe 4)\", 1.0, 0.0, \"ppm\", false], [41, 0, 118, \"Relativ Feuchtigkeit (bei niedrich RF/CO2, Lüfterstufe 2)\", 1.0, 0.0, \"%\", false], [41, 0, 213, \"HNBP Offsettemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 214, \"NBP 1 Offsettemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 215, \"NBP 2 Offsettemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 216, \"NBP 3 Offsettemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 217, \"NBP 4 Offsettemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 218, \"NBP 5 Offsettemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 219, \"NBP 6 Offsettemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 220, \"NBP 7 Offsettemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 221, \"NBP 8 Offsettemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 222, \"NBP 9 Offsettemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 223, \"NBP 10 Offsettemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 224, \"NBP 11 Offsettemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 225, \"NBP 12 Offsettemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 226, \"NBP 13 Offsettemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 227, \"NBP 14 Offsettemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 228, \"NBP 15 Offsettemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 229, \"NBP 16 Offsettemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 230, \"NBP 17 Offsettemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 231, \"NBP 18 Offsettemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 232, \"NBP 19 Offsettemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 233, \"HNBP Mitteltemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 234, \"NBP 1 Mitteltemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 235, \"NBP 2 Mitteltemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 236, \"NBP 3 Mitteltemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 237, \"NBP 4 Mitteltemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 238, \"NBP 5 Mitteltemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 239, \"NBP 6 Mitteltemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 240, \"NBP 7 Mitteltemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 241, \"NBP 8 Mitteltemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 242, \"NBP 9 Mitteltemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 243, \"NBP 10 Mitteltemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 244, \"NBP 11 Mitteltemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 245, \"NBP 12 Mitteltemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 246, \"NBP 13 Mitteltemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 247, \"NBP 14 Mitteltemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 248, \"NBP 15 Mitteltemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 249, \"NBP 16 Mitteltemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 250, \"NBP 17 Mitteltemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 251, \"NBP 18 Mitteltemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 252, \"NBP 19 Mitteltemperatur\", 1.0, 0.0, \"°C\", true], [41, 0, 187, \"ZBP PTC freigeben\", 1.0, 0.0, \"\", false], [41, 0, 253, \"HNBP PTC freigeben\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 254, \"NBP 1 PTC freigeben\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 255, \"NBP 2 PTC freigeben\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 256, \"NBP 3 PTC freigeben\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 257, \"NBP 4 PTC freigeben\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 258, \"NBP 5 PTC freigeben\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 259, \"NBP 6 PTC freigeben\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 260, \"NBP 7 PTC freigeben\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 261, \"NBP 8 PTC freigeben\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 262, \"NBP 9 PTC freigeben\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 263, \"NBP 10 PTC freigeben\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 264, \"NBP 11 PTC freigeben\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 265, \"NBP 12 PTC freigeben\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 266, \"NBP 13 PTC freigeben\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 267, \"NBP 14 PTC freigeben\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 268, \"NBP 15 PTC freigeben\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 269, \"NBP 16 PTC freigeben\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 270, \"NBP 17 PTC freigeben\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 271, \"NBP 18 PTC freigeben\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 272, \"NBP 19 PTC freigeben\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 273, \"HNBP Taste gesperrt\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 274, \"NBP 1 Taste gesperrt\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 275, \"NBP 2 Taste gesperrt\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 276, \"NBP 3 Taste gesperrt\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 277, \"NBP 4 Taste gesperrt\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 278, \"NBP 5 Taste gesperrt\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 279, \"NBP 6 Taste gesperrt\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 280, \"NBP 7 Taste gesperrt\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 281, \"NBP 8 Taste gesperrt\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 282, \"NBP 9 Taste gesperrt\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 283, \"NBP 10 Taste gesperrt\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 284, \"NBP 11 Taste gesperrt\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 285, \"NBP 12 Taste gesperrt\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 286, \"NBP 13 Taste gesperrt\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 287, \"NBP 14 Taste gesperrt\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 288, \"NBP 15 Taste gesperrt\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 289, \"NBP 16 Taste gesperrt\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 290, \"NBP 17 Taste gesperrt\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 291, \"NBP 18 Taste gesperrt\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 292, \"NBP 19 Taste gesperrt\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 313, \"Heizmodule 1 E1 Eingang Konfiguration\", 1.0, 0.0, \"\", false], [41, 0, 314, \"Heizmodule 1 E2 Eingang Konfiguration\", 1.0, 0.0, \"\", false], [41, 0, 315, \"Heizmodule 2 E1 Eingang Konfiguration\", 1.0, 0.0, \"\", false], [41, 0, 316, \"Heizmodule 2 E2 Eingang Konfiguration\", 1.0, 0.0, \"\", false], [41, 0, 190, \"HNBP measured temp offset\", 10.0, 0.0, \"°C\", true], [41, 0, 191, \"PTC measured temp offset NBP1\", 10.0, 0.0, \"°C\", true], [41, 0, 192, \"PTC measured temp offset NBP2\", 10.0, 0.0, \"°C\", true], [41, 0, 193, \"PTC measured temp offset NBP3\", 10.0, 0.0, \"°C\", true], [41, 0, 194, \"PTC measured temp offset NBP4\", 10.0, 0.0, \"°C\", true], [41, 0, 195, \"PTC measured temp offset NBP5\", 10.0, 0.0, \"°C\", true], [41, 0, 196, \"PTC measured temp offset NBP6\", 10.0, 0.0, \"°C\", true], [41, 0, 197, \"PTC measured temp offset NBP7\", 10.0, 0.0, \"°C\", true], [41, 0, 198, \"PTC measured temp offset NBP8\", 10.0, 0.0, \"°C\", true], [41, 0, 199, \"PTC measured temp offset NBP9\", 10.0, 0.0, \"°C\", true], [41, 0, 200, \"PTC measured temp offset NBP10\", 10.0, 0.0, \"°C\", true], [41, 0, 201, \"PTC measured temp offset NBP11\", 10.0, 0.0, \"°C\", true], [41, 0, 202, \"PTC measured temp offset NBP12\", 10.0, 0.0, \"°C\", true], [41, 0, 203, \"PTC measured temp offset NBP13\", 10.0, 0.0, \"°C\", true], [41, 0, 204, \"PTC measured temp offset NBP14\", 10.0, 0.0, \"°C\", true], [41, 0, 205, \"PTC measured temp offset NBP15\", 10.0, 0.0, \"°C\", true], [41, 0, 206, \"PTC measured temp offset NBP16\", 10.0, 0.0, \"°C\", true], [41, 0, 207, \"PTC measured temp offset NBP17\", 10.0, 0.0, \"°C\", true], [41, 0, 208, \"PTC measured temp offset NBP18\", 10.0, 0.0, \"°C\", true], [41, 0, 209, \"PTC measured temp offset NBP19\", 10.0, 0.0, \"°C\", true], [41, 0, 450, \"Sommerzeit Aktivieren\", 1.0, 0.0, \"\", false], [41, 0, 451, \"Minuten\", 1.0, 0.0, \"\", false], [41, 0, 452, \"Stunden\", 1.0, 0.0, \"\", false], [41, 0, 453, \"Tag\", 1.0, 0.0, \"\", false], [41, 0, 454, \"Datum\", 1.0, 0.0, \"\", false], [41, 0, 455, \"Monat\", 1.0, 0.0, \"\", false], [41, 0, 456, \"Jahr\", 1.0, 0.0, \"\", false], [41, 0, 401, \"Sprache\", 1.0, 0.0, \"\", false], [41, 0, 458, \"T2\", 100.0, 0.0, \"\", true], [41, 0, 464, \"Störung zurücksetzen\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 465, \"Geräte Neustart\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 613, \"Zeitprogramm An/Aus\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 507, \"Zeitprogramm für alle Tage übernehmen (1=Montag, 2=Dienstag,\", 1.0, 0.0, \"\", false], [41, 0, 508, \"Montag #1 Zeit Stunden An\", 1.0, 0.0, \"\", false], [41, 0, 509, \"Montag #1 Zeit Minuten An\", 1.0, 0.0, \"\", false], [41, 0, 510, \"Montag #1 Zeit Stunden Aus\", 1.0, 0.0, \"\", false], [41, 0, 511, \"Montag #1 Zeit Minuten Aus\", 1.0, 0.0, \"\", false], [41, 0, 512, \"Luftmenge (0=Keine aktion ,1=Stufe 1, 2=Stufe 2, 3=Stufe 3, \", 1.0, 0.0, \"\", false], [41, 0, 513, \"Montag #2 Zeit Stunden An\", 1.0, 0.0, \"\", false], [41, 0, 514, \"Montag #2 Zeit Minuten An\", 1.0, 0.0, \"\", false], [41, 0, 515, \"Montag #2 Zeit Stunden Aus\", 1.0, 0.0, \"\", false], [41, 0, 516, \"Montag #2 Zeit Minuten Aus\", 1.0, 0.0, \"\", false], [41, 0, 517, \"Luftmenge (0=Keine aktion ,1=Stufe 1, 2=Stufe 2, 3=Stufe 3, \", 1.0, 0.0, \"\", false], [41, 0, 518, \"Montag #3 Zeit Stunden An\", 1.0, 0.0, \"\", false], [41, 0, 519, \"Montag #3Zeit Minuten An\", 1.0, 0.0, \"\", false], [41, 0, 520, \"Montag #3 Zeit Stunden Aus\", 1.0, 0.0, \"\", false], [41, 0, 521, \"Montag #3 Zeit Minuten Aus\", 1.0, 0.0, \"\", false], [41, 0, 522, \"Luftmenge (0=Keine aktion ,1=Stufe 1, 2=Stufe 2, 3=Stufe 3, \", 1.0, 0.0, \"\", false], [41, 0, 523, \"Dienstag #1 Zeit Stunden An\", 1.0, 0.0, \"\", false], [41, 0, 524, \"Dienstag #1 Zeit Minuten An\", 1.0, 0.0, \"\", false], [41, 0, 525, \"Dienstag #1 Zeit Stunden Aus\", 1.0, 0.0, \"\", false], [41, 0, 526, \"Dienstag #1 Zeit Minuten Aus\", 1.0, 0.0, \"\", false], [41, 0, 527, \"Luftmenge (0=Keine aktion ,1=Stufe 1, 2=Stufe 2, 3=Stufe 3, \", 1.0, 0.0, \"\", false], [41, 0, 528, \"Dienstag #2 Zeit Stunden An\", 1.0, 0.0, \"\", false], [41, 0, 529, \"Dienstag #2 Zeit Minuten An\", 1.0, 0.0, \"\", false], [41, 0, 530, \"Dienstag #2 Zeit Stunden Aus\", 1.0, 0.0, \"\", false], [41, 0, 531, \"Dienstag #2 Zeit Minuten Aus\", 1.0, 0.0, \"\", false], [41, 0, 532, \"Luftmenge (0=Keine aktion ,1=Stufe 1, 2=Stufe 2, 3=Stufe 3, \", 1.0, 0.0, \"\", false], [41, 0, 533, \"Dienstag #3 Zeit Stunden An\", 1.0, 0.0, \"\", false], [41, 0, 534, \"Dienstag #3Zeit Minuten An\", 1.0, 0.0, \"\", false], [41, 0, 535, \"Dienstag #3 Zeit Stunden Aus\", 1.0, 0.0, \"\", false], [41, 0, 536, \"Dienstag #3 Zeit Minuten Aus\", 1.0, 0.0, \"\", false], [41, 0, 537, \"Luftmenge (0=Keine aktion ,1=Stufe 1, 2=Stufe 2, 3=Stufe 3, \", 1.0, 0.0, \"\", false], [41, 0, 538, \"Mittwoch #1 Zeit Stunden An\", 1.0, 0.0, \"\", false], [41, 0, 539, \"Mittwoch #1 Zeit Minuten An\", 1.0, 0.0, \"\", false], [41, 0, 540, \"Mittwoch #1 Zeit Stunden Aus\", 1.0, 0.0, \"\", false], [41, 0, 541, \"Mittwoch #1 Zeit Minuten Aus\", 1.0, 0.0, \"\", false], [41, 0, 542, \"Luftmenge (0=Keine aktion ,1=Stufe 1, 2=Stufe 2, 3=Stufe 3, \", 1.0, 0.0, \"\", false], [41, 0, 543, \"Mittwoch #2 Zeit Stunden An\", 1.0, 0.0, \"\", false], [41, 0, 544, \"Mittwoch #2 Zeit Minuten An\", 1.0, 0.0, \"\", false], [41, 0, 545, \"Mittwoch #2 Zeit Stunden Aus\", 1.0, 0.0, \"\", false], [41, 0, 546, \"Mittwoch #2 Zeit Minuten Aus\", 1.0, 0.0, \"\", false], [41, 0, 547, \"Luftmenge (0=Keine aktion ,1=Stufe 1, 2=Stufe 2, 3=Stufe 3, \", 1.0, 0.0, \"\", false], [41, 0, 548, \"Mittwoch #3 Zeit Stunden An\", 1.0, 0.0, \"\", false], [41, 0, 549, \"Mittwoch #3Zeit Minuten An\", 1.0, 0.0, \"\", false], [41, 0, 550, \"Mittwoch #3 Zeit Stunden Aus\", 1.0, 0.0, \"\", false], [41, 0, 551, \"Mittwoch #3 Zeit Minuten Aus\", 1.0, 0.0, \"\", false], [41, 0, 552, \"Luftmenge (0=Keine aktion ,1=Stufe 1, 2=Stufe 2, 3=Stufe 3, \", 1.0, 0.0, \"\", false], [41, 0, 553, \"Donnerstag #1 Zeit Stunden An\", 1.0, 0.0, \"\", false], [41, 0, 554, \"Donnerstag #1 Zeit Minuten An\", 1.0, 0.0, \"\", false], [41, 0, 555, \"Donnerstag #1 Zeit Stunden Aus\", 1.0, 0.0, \"\", false], [41, 0, 556, \"Donnerstag #1 Zeit Minuten Aus\", 1.0, 0.0, \"\", false], [41, 0, 557, \"Luftmenge (0=Keine aktion ,1=Stufe 1, 2=Stufe 2, 3=Stufe 3, \", 1.0, 0.0, \"\", false], [41, 0, 558, \"Donnerstag #2 Zeit Stunden An\", 1.0, 0.0, \"\", false], [41, 0, 559, \"Donnerstag #2 Zeit Minuten An\", 1.0, 0.0, \"\", false], [41, 0, 560, \"Donnerstag #2 Zeit Stunden Aus\", 1.0, 0.0, \"\", false], [41, 0, 561, \"Donnerstag #2 Zeit Minuten Aus\", 1.0, 0.0, \"\", false], [41, 0, 562, \"Luftmenge (0=Keine aktion ,1=Stufe 1, 2=Stufe 2, 3=Stufe 3, \", 1.0, 0.0, \"\", false], [41, 0, 563, \"Donnerstag #3 Zeit Stunden An\", 1.0, 0.0, \"\", false], [41, 0, 564, \"Donnerstag #3Zeit Minuten An\", 1.0, 0.0, \"\", false], [41, 0, 565, \"Donnerstag #3 Zeit Stunden Aus\", 1.0, 0.0, \"\", false], [41, 0, 566, \"Donnerstag #3 Zeit Minuten Aus\", 1.0, 0.0, \"\", false], [41, 0, 567, \"Luftmenge (0=Keine aktion ,1=Stufe 1, 2=Stufe 2, 3=Stufe 3, \", 1.0, 0.0, \"\", false], [41, 0, 568, \"Freitag #1 Zeit Stunden An\", 1.0, 0.0, \"\", false], [41, 0, 569, \"Freitag #1 Zeit Minuten An\", 1.0, 0.0, \"\", false], [41, 0, 570, \"Freitag #1 Zeit Stunden Aus\", 1.0, 0.0, \"\", false], [41, 0, 571, \"Freitag #1 Zeit Minuten Aus\", 1.0, 0.0, \"\", false], [41, 0, 572, \"Luftmenge (0=Keine aktion ,1=Stufe 1, 2=Stufe 2, 3=Stufe 3, \", 1.0, 0.0, \"\", false], [41, 0, 573, \"Freitag #2 Zeit Stunden An\", 1.0, 0.0, \"\", false], [41, 0, 574, \"Freitag #2 Zeit Minuten An\", 1.0, 0.0, \"\", false], [41, 0, 575, \"Freitag #2 Zeit Stunden Aus\", 1.0, 0.0, \"\", false], [41, 0, 576, \"Freitag #2 Zeit Minuten Aus\", 1.0, 0.0, \"\", false], [41, 0, 577, \"Luftmenge (0=Keine aktion ,1=Stufe 1, 2=Stufe 2, 3=Stufe 3, \", 1.0, 0.0, \"\", false], [41, 0, 578, \"Freitag #3 Zeit Stunden An\", 1.0, 0.0, \"\", false], [41, 0, 579, \"Freitag #3Zeit Minuten An\", 1.0, 0.0, \"\", false], [41, 0, 580, \"Freitag #3 Zeit Stunden Aus\", 1.0, 0.0, \"\", false], [41, 0, 581, \"Freitag #3 Zeit Minuten Aus\", 1.0, 0.0, \"\", false], [41, 0, 582, \"Luftmenge (0=Keine aktion ,1=Stufe 1, 2=Stufe 2, 3=Stufe 3, \", 1.0, 0.0, \"\", false], [41, 0, 583, \"Samstag #1 Zeit Stunden An\", 1.0, 0.0, \"\", false], [41, 0, 584, \"Samstag #1 Zeit Minuten An\", 1.0, 0.0, \"\", false], [41, 0, 585, \"Samstag #1 Zeit Stunden Aus\", 1.0, 0.0, \"\", false], [41, 0, 586, \"Samstag #1 Zeit Minuten Aus\", 1.0, 0.0, \"\", false], [41, 0, 587, \"Luftmenge (0=Keine aktion ,1=Stufe 1, 2=Stufe 2, 3=Stufe 3, \", 1.0, 0.0, \"\", false], [41, 0, 588, \"Samstag #2 Zeit Stunden An\", 1.0, 0.0, \"\", false], [41, 0, 589, \"Samstag #2 Zeit Minuten An\", 1.0, 0.0, \"\", false], [41, 0, 590, \"Samstag #2 Zeit Stunden Aus\", 1.0, 0.0, \"\", false], [41, 0, 591, \"Samstag #2 Zeit Minuten Aus\", 1.0, 0.0, \"\", false], [41, 0, 592, \"Luftmenge (0=Keine aktion ,1=Stufe 1, 2=Stufe 2, 3=Stufe 3, \", 1.0, 0.0, \"\", false], [41, 0, 593, \"Samstag #3 Zeit Stunden An\", 1.0, 0.0, \"\", false], [41, 0, 594, \"Samstag #3Zeit Minuten An\", 1.0, 0.0, \"\", false], [41, 0, 595, \"Samstag #3 Zeit Stunden Aus\", 1.0, 0.0, \"\", false], [41, 0, 596, \"Samstag #3 Zeit Minuten Aus\", 1.0, 0.0, \"\", false], [41, 0, 597, \"Luftmenge (0=Keine aktion ,1=Stufe 1, 2=Stufe 2, 3=Stufe 3, \", 1.0, 0.0, \"\", false], [41, 0, 598, \"Sonntag #1 Zeit Stunden An\", 1.0, 0.0, \"\", false], [41, 0, 599, \"Sonntag #1 Zeit Minuten An\", 1.0, 0.0, \"\", false], [41, 0, 600, \"Sonntag #1 Zeit Stunden Aus\", 1.0, 0.0, \"\", false], [41, 0, 601, \"Sonntag #1 Zeit Minuten Aus\", 1.0, 0.0, \"\", false], [41, 0, 602, \"Luftmenge (0=Keine aktion ,1=Stufe 1, 2=Stufe 2, 3=Stufe 3, \", 1.0, 0.0, \"\", false], [41, 0, 603, \"Sonntag #2 Zeit Stunden An\", 1.0, 0.0, \"\", false], [41, 0, 604, \"Sonntag #2 Zeit Minuten An\", 1.0, 0.0, \"\", false], [41, 0, 605, \"Sonntag #2 Zeit Stunden Aus\", 1.0, 0.0, \"\", false], [41, 0, 606, \"Sonntag #2 Zeit Minuten Aus\", 1.0, 0.0, \"\", false], [41, 0, 607, \"Luftmenge (0=Keine aktion ,1=Stufe 1, 2=Stufe 2, 3=Stufe 3, \", 1.0, 0.0, \"\", false], [41, 0, 608, \"Sonntag #3 Zeit Stunden An\", 1.0, 0.0, \"\", false], [41, 0, 609, \"Sonntag #3Zeit Minuten An\", 1.0, 0.0, \"\", false], [41, 0, 610, \"Sonntag #3 Zeit Stunden Aus\", 1.0, 0.0, \"\", false], [41, 0, 611, \"Sonntag #3 Zeit Minuten Aus\", 1.0, 0.0, \"\", false], [41, 0, 612, \"Luftmenge (0=Keine aktion ,1=Stufe 1, 2=Stufe 2, 3=Stufe 3, \", 1.0, 0.0, \"\", false], [41, 0, 619, \"Nachtabsenkung An/Aus\", 1.0, 0.0, \"AUS/AN\", false], [41, 0, 614, \"Nachtabsenkung Zeit Studen An\", 1.0, 0.0, \"\", false], [41, 0, 615, \"Nachtabsenkung Zeit Minuten An\", 1.0, 0.0, \"\", false], [41, 0, 616, \"Nachtabsenkung Zeit Studen Aus\", 1.0, 0.0, \"\", false], [41, 0, 617, \"Nachtabsenkung Zeit Minuten Aus\", 1.0, 0.0, \"\", false], [41, 0, 618, \"Nachttemperatur\", 100.0, 0.0, \"°C\", true], [41, 1, 23, \"Akt\", 1.0, 0.0, \"\", true], [41, 1, 195, \"T1 Zuluft\", 100.0, 0.0, \"°C\", false], [41, 1, 198, \"T3 Frischluft\", 100.0, 0.0, \"°C\", false], [41, 1, 197, \"T4 Fortluft\", 100.0, 0.0, \"°C\", false], [41, 1, 196, \"T7 Abluft\", 100.0, 0.0, \"°C\", false], [41, 1, 263, \"T2\", 100.0, 0.0, \"°C\", false], [41, 1, 265, \"SollZonenTemperatur1\", 100.0, 0.0, \"°C\", false], [41, 1, 154, \"Akt\", 1.0, 0.0, \"\", true], [41, 1, 0, \"Akt\", 1.0, 0.0, \"rpm\", true], [41, 1, 211, \"Akt\", 1.0, 0.0, \"\", true], [41, 1, 1, \"Akt\", 1.0, 0.0, \"rpm\", true], [41, 1, 223, \"Zustand 4-Wegeventil Heizen/Kühlen\", 1.0, 0.0, \"AUS/AN\", true], [41, 1, 222, \"Zustand Bypass\", 1.0, 0.0, \"AUS/AN\", true], [41, 1, 159, \"Schieber Position\", 1.0, 0.0, \"\", true], [41, 1, 14, \"ClockHour\", 1.0, 0.0, \"\", true], [41, 1, 15, \"ClockMin\", 1.0, 0.0, \"\", true], [41, 1, 16, \"ClockDay\", 1.0, 0.0, \"\", true], [41, 1, 17, \"ClockDate\", 1.0, 0.0, \"\", true], [41, 1, 18, \"ClockMonth\", 1.0, 0.0, \"\", true], [41, 1, 25, \"Power Total\", 10.0, 0.0, \"\", true], [41, 1, 21, \"Akt\", 1.0, 0.0, \"ppm\", true], [41, 1, 22, \"Akt\", 1.0, 0.0, \"%\", true], [41, 1, 43, \"Akt\", 1.0, 0.0, \"ppm\", true], [41, 1, 44, \"Akt\", 1.0, 0.0, \"%\", true], [41, 1, 45, \"Akt\", 1.0, 0.0, \"ppm\", true], [41, 1, 46, \"Akt\", 1.0, 0.0, \"%\", true], [41, 1, 6, \"Akt\", 1.0, 0.0, \"ppm\", true], [41, 1, 7, \"Akt\", 1.0, 0.0, \"%\", true], [41, 1, 2, \"Akt\", 1.0, 0.0, \"ppm\", true], [41, 1, 9, \"Akt\", 1.0, 0.0, \"%\", true], [41, 1, 26, \"Air m3/h\", 10.0, 0.0, \"\", true], [41, 1, 35, \"JAZ Total 365 tage\", 100.0, 0.0, \"\", true], [41, 1, 36, \"JAZ Total days\", 1.0, 0.0, \"\", true], [41, 1, 4, \"Nacht Temp Bei Zeitprogramm\", 100.0, 0.0, \"°C\", false], [41, 1, 3, \"PTC Kühlen Freigabe\", 1.0, 0.0, \"\", true], [41, 1, 590, \"Temperatur Haupt Nebenbedienteil\", 10.0, 0.0, \"°C\", true], [41, 1, 593, \"Temperatur Nebenbedienteil 1\", 10.0, 0.0, \"°C\", true], [41, 1, 596, \"Temperatur Nebenbedienteil 2\", 10.0, 0.0, \"°C\", true], [41, 1, 599, \"Temperatur Nebenbedienteil 3\", 10.0, 0.0, \"°C\", true], [41, 1, 602, \"Temperatur Nebenbedienteil 4\", 10.0, 0.0, \"°C\", true], [41, 1, 605, \"Temperatur Nebenbedienteil 5\", 10.0, 0.0, \"°C\", true], [41, 1, 608, \"Temperatur Nebenbedienteil 6\", 10.0, 0.0, \"°C\", true], [41, 1, 611, \"Temperatur Nebenbedienteil 7\", 10.0, 0.0, \"°C\", true], [41, 1, 614, \"Temperatur Nebenbedienteil 8\", 10.0, 0.0, \"°C\", true], [41, 1, 617, \"Temperatur Nebenbedienteil 9\", 10.0, 0.0, \"°C\", true], [41, 1, 620, \"Temperatur Nebenbedienteil 10\", 10.0, 0.0, \"°C\", true], [41, 1, 623, \"Temperatur Nebenbedienteil 11\", 10.0, 0.0, \"°C\", true], [41, 1, 626, \"Temperatur Nebenbedienteil 12\", 10.0, 0.0, \"°C\", true], [41, 1, 629, \"Temperatur Nebenbedienteil 13\", 10.0, 0.0, \"°C\", true], [41, 1, 632, \"Temperatur Nebenbedienteil 14\", 10.0, 0.0, \"°C\", true], [41, 1, 635, \"Temperatur Nebenbedienteil 15\", 10.0, 0.0, \"°C\", true], [41, 1, 638, \"Temperatur Nebenbedienteil 16\", 10.0, 0.0, \"°C\", true], [41, 1, 641, \"Temperatur Nebenbedienteil 17\", 10.0, 0.0, \"°C\", true], [41, 1, 644, \"Temperatur Nebenbedienteil 18\", 10.0, 0.0, \"°C\", true], [41, 1, 647, \"Temperatur Nebenbedienteil 19\", 10.0, 0.0, \"°C\", true], [41, 1, 811, \"T5 Vor Verdampfer\", -1000.0, 0.0, \"*10\", false], [41, 1, 812, \"T6 Verdampfer\", -1000.0, 0.0, \"*10\", false], [41, 1, 813, \"T20 Behälter Unten\", -1000.0, 0.0, \"*10\", false], [41, 1, 814, \"T21 Behälter Mitte\", -1000.0, 0.0, \"*10\", false], [41, 1, 824, \"R2:Kompressor\", 1.0, 0.0, \"AUS/AN\", false], [41, 1, 825, \"R3:Solar\", 1.0, 0.0, \"AUS/AN\", false], [41, 1, 826, \"R4:E-Heiz\", 1.0, 0.0, \"AUS/AN\", false], [41, 1, 827, \"R5:Ventilator\", 1.0, 0.0, \"AUS/AN\", false], [41, 1, 828, \"R6:Abtau\", 1.0, 0.0, \"AUS/AN\", false], [41, 1, 862, \"FanRPM\", 1.0, 0.0, \"rpm\", false], [41, 1, 882, \"BehaelderAvg\", 100.0, 0.0, \"°C\", false], [41, 1, 899, \"PV Eheiz AN\", 1.0, 0.0, \"AUS/AN\", false], [41, 1, 900, \"PV WP AN\", 1.0, 0.0, \"AUS/AN\", false], [20, 0, 2002, \"Betriebsart (0=AUS 1=Bedarf 2=LF1 3=LF2\", 1.0, 0.0, \"\", false], [20, 0, 2000, \"Normal Wassertemperatur\", 10.0, 0.0, \"°C\", false], [20, 0, 2001, \"E-heiz AUS-AN (0-1)\", 1.0, 0.0, \"AUS/AN\", false], [20, 0, 2150, \"Stunde\", 1.0, 0.0, \"Stunde\", false], [20, 0, 2151, \"Minute\", 1.0, 0.0, \"Minuten\", false], [20, 0, 2152, \"Wochentag\", 1.0, 0.0, \"\", false], [20, 0, 2153, \"Tag\", 1.0, 0.0, \"\", false], [20, 0, 2154, \"Monat\", 1.0, 0.0, \"Monate\", false], [20, 0, 2155, \"Jahr\", 1.0, 0.0, \"\", false], [20, 0, 2008, \"Sommerzeit 0=deaktivirt  1=aktivirt\", 1.0, 0.0, \"AUS/AN\", false], [20, 0, 2003, \"Temperatur E-Heiz\", 10.0, 0.0, \"°C\", false], [20, 0, 2006, \"Sprache\", 1.0, 0.0, \"\", false], [20, 0, 2009, \"PauseSchirmZeit 0=Aus\", 1.0, 0.0, \"AUS/AN\", false], [20, 0, 2025, \"Legionellafunktio\", 1.0, 0.0, \"AUS/AN\", false], [20, 0, 2010, \"PV funktio\", 1.0, 0.0, \"AUS/AN\", false], [20, 1, 800, \"ADCvalueCH6\", 1.0, 0.0, \"\", false], [20, 1, 801, \"ADCvalueCH7\", 1.0, 0.0, \"\", false], [20, 1, 802, \"ADCvalueCH8\", 1.0, 0.0, \"\", false], [20, 1, 803, \"ADCvalueCH9\", 1.0, 0.0, \"\", false], [20, 1, 804, \"ADCvalueCH10\", 1.0, 0.0, \"\", false], [20, 1, 805, \"ADCvalueCH11\", 1.0, 0.0, \"\", false], [20, 1, 806, \"ADCvalueCH3\", 1.0, 0.0, \"\", false], [20, 1, 807, \"ADCvalueCH12\", 1.0, 0.0, \"\", false], [20, 1, 808, \"ADCvalueCH15\", 1.0, 0.0, \"\", false], [20, 1, 809, \"ADCvalueCH13\", 1.0, 0.0, \"\", false], [20, 1, 810, \"ADCvalueCH14\", 1.0, 0.0, \"\", false], [20, 1, 811, \"T5 Vor Verdampfer\", 10.0, 1000.0, \"°C\", false], [20, 1, 812, \"T6 Verdampfer\", 10.0, 1000.0, \"°C\", false], [20, 1, 813, \"T20 Behälter Unten\", 10.0, 1000.0, \"°C\", false], [20, 1, 814, \"T21 Behälter Mitte\", 10.0, 1000.0, \"°C\", false], [20, 1, 815, \"T13 Kompressor\", 10.0, 1000.0, \"°C\", false], [20, 1, 816, \"T11 Sauggas nach Verdampfer\", 10.0, 1000.0, \"°C\", false], [20, 1, 817, \"T9 Extra (T300, lt. Handbuch unbenutzter Reservefuehler)\", 10.0, 1000.0, \"°C\", false], [20, 1, 818, \"P14 ND\", 100.0, 0.0, \"bar\", false], [20, 1, 819, \"P19 Druckdiff\", 100.0, 0.0, \"Pa\", false], [20, 1, 820, \"E-ventil Posision\", 1.0, 0.0, \"\", false], [20, 1, 821, \"StepSetpointPosision\", 1.0, 0.0, \"\", false], [20, 1, 822, \"StepMicroStepPos\", 1.0, 0.0, \"\", false], [20, 1, 823, \"StepState\", 1.0, 0.0, \"\", false], [20, 1, 824, \"R2:Kompressor\", 1.0, 0.0, \"AUS/AN\", false], [20, 1, 825, \"R3:Solar\", 1.0, 0.0, \"AUS/AN\", false], [20, 1, 826, \"R4:E-Heiz\", 1.0, 0.0, \"AUS/AN\", false], [20, 1, 827, \"R5:Ventilator\", 1.0, 0.0, \"AUS/AN\", false], [20, 1, 828, \"R6:Abtau\", 1.0, 0.0, \"AUS/AN\", false], [20, 1, 829, \"Verdampfertemperatur (Druck)\", 10.0, 1000.0, \"°C\", false], [20, 1, 830, \"Delta Sauggas Verdampfer Temp\", 10.0, 0.0, \"°C\", false], [20, 1, 831, \"Nou_used\", 1.0, 0.0, \"\", false], [20, 1, 832, \"HotAirRestrictedCnt\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 833, \"CompressorState\", 1.0, 0.0, \"\", false], [20, 1, 834, \"NotBetrieb\", 1.0, 0.0, \"\", false], [20, 1, 835, \"WP_AbtauRestrictedCnt\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 836, \"WP_StateTimer\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 837, \"AbtauState\", 1.0, 0.0, \"\", false], [20, 1, 838, \"Ventilator Geschwindigkeit\", 1.0, 0.0, \"%\", false], [20, 1, 839, \"AbtauMaxTimeLeft\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 840, \"AbtauWaitTime\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 841, \"KalteBetriebCnt\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 842, \"RressorstatFehlerCnt\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 843, \"ModBusErrorDisplayCnt\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 844, \"VentilatorFehlerCnt\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 845, \"KompTempFehlerNo4\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 846, \"P14DrukFehlerCnt\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 847, \"HourCntR2LowWord\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 848, \"HourCntR2HiWord\", 1.0, 0.0, \"\", false], [20, 1, 849, \"HourCntR3LowWord\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 850, \"HourCntR3HiWord\", 1.0, 0.0, \"\", false], [20, 1, 851, \"HourCntR4LowWord\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 852, \"HourCntR4HiWord\", 1.0, 0.0, \"\", false], [20, 1, 853, \"HourCntR5LowWord\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 854, \"HourCntR5HiWord\", 1.0, 0.0, \"\", false], [20, 1, 855, \"HourCntR6LowWord\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 856, \"HourCntR6HiWord\", 1.0, 0.0, \"\", false], [20, 1, 857, \"FilterCntLowWord\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 858, \"FilterCntHiWord\", 1.0, 0.0, \"\", false], [20, 1, 859, \"LegionallaCntLowWord\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 860, \"LegionallaCntHiWord\", 1.0, 0.0, \"\", false], [20, 1, 861, \"FehlerList\", 1.0, 0.0, \"Binär\", false], [20, 1, 862, \"FanRPM\", 1.0, 0.0, \"rpm\", false], [20, 1, 863, \"ECO_NodeOnOff\", 1.0, 0.0, \"AUS/AN\", false], [20, 1, 864, \"pid_max_vordamfer_reduktion\", 1.0, 0.0, \"\", false], [20, 1, 865, \"MaxTempWP_reduktion\", 1.0, -1.0, \"\", false], [20, 1, 868, \"NotEheizFreigabeState\", 1.0, 0.0, \"AUS/AN\", false], [20, 1, 869, \"P19FehlerCnt\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 870, \"P14FehlerCnt\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 871, \"T5_FehlerCnt\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 872, \"T6_FehlerCnt\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 873, \"T20_FehlerCnt\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 874, \"T21_FehlerCnt\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 875, \"T13_FehlerCnt\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 876, \"T11_FehlerCnt\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 877, \"T9_FehlerCnt\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 878, \"KompMaxTempFehlerCnt\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 879, \"CurrentSetpoint\", 10.0, 0.0, \"°C\", false], [20, 1, 880, \"Number_of_restart\", 1.0, 0.0, \"\", false], [20, 1, 881, \"Firmware ver\", 10.0, 0.0, \"\", false], [20, 1, 882, \"BehaelderAvg\", 100.0, 0.0, \"°C\", false], [20, 1, 883, \"SuperHeatTemp\", 100.0, 0.0, \"°C\", false], [20, 1, 884, \"AktMaxSuperHeat\", 100.0, 0.0, \"°C\", false], [20, 1, 885, \"AktMinSuperHeat\", 100.0, 0.0, \"°C\", false], [20, 1, 886, \"SuperHeatRef\", 100.0, 0.0, \"°C\", false], [20, 1, 887, \"EventilStartPosTimeLeft\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 888, \"RegReleaseAfterAbtauRestTime\", 1.0, 0.0, \"Sekunden\", false], [20, 1, 889, \"AfterAbtauSuperheatRestoreValue\", 1.0, 0.0, \"\", false], [20, 1, 890, \"AfterAbtauMaxSuperHeat\", 100.0, 0.0, \"°C\", false], [20, 1, 891, \"ADCvalueCH13Avg\", 1.0, 0.0, \"\", false], [20, 1, 892, \"AbtauStartTemp\", 10.0, 1000.0, \"°C\", false], [20, 1, 896, \"Hitze Begrenzung\", 1.0, 0.0, \"\", false], [20, 1, 897, \"Kälte Begrenzung\", 1.0, 0.0, \"\", false], [20, 1, 898, \"PV T9 level\", 1.0, 0.0, \"%\", false], [20, 1, 899, \"PV Eheiz AN\", 1.0, 0.0, \"AUS/AN\", false], [20, 1, 900, \"PV WP AN\", 1.0, 0.0, \"AUS/AN\", false]];\n\n// Index nach unit|table|address aufbauen (einmalig, gecached im Node-Kontext)\nlet idx = context.get('regIndex');\nif (!idx) {\n    idx = {};\n    for (const [unit, table, addr, name, scale, offset, einheit, signed] of REG_MAP) {\n        const tbl = table === 0 ? 'holding' : 'input';\n        idx[unit + '|' + tbl + '|' + addr] = { name, scale, offset, einheit, signed };\n    }\n    context.set('regIndex', idx);\n}\n\nconst [unitStr, table, startStr, countStr] = (msg.topic || '').split('|');\nconst unit = parseInt(unitStr, 10);\nconst start = parseInt(startStr, 10);\nconst tableName = table === 'holding' ? 'holding' : 'input';\n\nconst raw = (msg.payload && msg.payload.data) ? msg.payload.data : msg.payload; // Array roher 16-bit Registerwerte\nif (!Array.isArray(raw)) {\n    node.warn('Kein Register-Array erhalten: ' + JSON.stringify(msg.payload));\n    return null;\n}\n\nconst out = {};\nfor (let i = 0; i < raw.length; i++) {\n    const addr = start + i;\n    const key = unit + '|' + tableName + '|' + addr;\n    const meta = idx[key];\n    if (!meta) continue; // Register nicht in der Map (z.B. unser Testregister 22) - wird ignoriert\n    let val = raw[i];\n    if (meta.signed && val > 32767) val = val - 65536;\n    const scale = meta.scale || 1;\n    const offset = meta.offset || 0;\n    const value = (val - offset) / scale;\n    out[`u${unit}_${tableName}_${addr}`] = {\n        name: meta.name,\n        value: Math.round(value * 1000) / 1000,\n        einheit: meta.einheit\n    };\n}\n\nmsg.payload = out;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 103,
+        "wires": [
+            [
+                "15373d77a5165d83"
+            ]
+        ]
+    },
+    {
+        "id": "15373d77a5165d83",
+        "type": "function",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Waermepumpe/Klima Status extrahieren",
+        "func": "// Letzten bekannten Zustand behalten, damit ein Update von nur einem Register\n// die anderen Anzeigewerte nicht auf \"unbekannt\" zuruecksetzt\nvar wpBetriebsart = context.get('wpBetriebsart');\nvar klimaZustand = context.get('klimaZustand');\nvar aussenTemp = context.get('aussenTemp');\n\nif (msg.payload && msg.payload['u41_holding_16']) {\n    // Betriebsart roh durchreichen: 0=Aus, 1=Sommerbetrieb, 2=Winterbetrieb, 3=ECO\n    wpBetriebsart = msg.payload['u41_holding_16'].value;\n    context.set('wpBetriebsart', wpBetriebsart);\n}\nif (msg.payload && msg.payload['u41_holding_62']) {\n    // Kuehlung freigabe: 0 = AUS, 1 = AN\n    klimaZustand = msg.payload['u41_holding_62'].value === 1 ? 1 : 0;\n    context.set('klimaZustand', klimaZustand);\n}\nif (msg.payload && msg.payload['u41_input_198']) {\n    // T3 Frischluft (Unit 41) = angesaugte Aussenluft vor dem Waermetauscher = Aussentemperatur-Sensor\n    // (T9 auf Unit 20/T300 ist laut Proxon-Handbuch nur ein unbenutzter Reservefuehler \"Extra\", nicht die Aussenluft!)\n    aussenTemp = msg.payload['u41_input_198'].value;\n    context.set('aussenTemp', aussenTemp);\n}\n\nif (wpBetriebsart === undefined && klimaZustand === undefined && aussenTemp === undefined) {\n    return null; // noch keines der Register je gelesen\n}\n\nreturn { payload: { wpBetriebsart: wpBetriebsart, klima: klimaZustand, aussenTemp: aussenTemp } };\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 103,
+        "wires": [
+            [
+                "7503efa471bfc449"
+            ]
+        ]
+    },
+    {
+        "id": "7503efa471bfc449",
+        "type": "link out",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "-> Klima Dashboard: WP/Klima Status",
+        "mode": "link",
+        "links": [
+            "f8ad2f8ddf086779"
+        ],
+        "x": 945,
+        "y": 103,
+        "wires": []
+    },
+    {
+        "id": "69f926e0d974e659",
+        "type": "comment",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Klimaanlage + Boiler Boost Steuerung mit PV – Überwachung + Pushover-Erinnerung",
+        "info": "# Klimafunktion Steuerung\nBedingung zum Kühlen: Akku-SOC >= Schwelle UND Einspeisung > Schwelle.\nAC-Erkennung: Verbrauch > Schwelle.\nWenn AC läuft, aber die Bedingung nicht mehr erfüllt ist, wird periodisch eine Pushover-Erinnerung ausgelöst.\nSchwellwerte sind über die Regler im Dashboard einstellbar.\n\n# Boiler Boost Steuerung\nZusätzlich Überwachung der Schwellwerte für die Aktivierung des Boiler Boost am T300 zur Warmwasser Erzeugung nur bei kostenlosem Strom.",
+        "x": 360,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "782a5586978210fa",
+        "type": "comment",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Proxon Modbus Register Read - V5",
+        "info": "WICHTIG: Parity ist 'even' (nicht 'none')! Poll-Rate pro Block 5 Minuten - bei Bedarf je Node anpassen.",
+        "x": 900,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "35490436ed966dac",
+        "type": "modbus-read",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "U41 holding 16-22",
+        "topic": "41|holding|16|7",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": true,
+        "showWarnings": true,
+        "unitid": "41",
+        "dataType": "HoldingRegister",
+        "adr": "16",
+        "quantity": "7",
+        "rate": "5",
+        "rateUnit": "m",
+        "delayOnStart": false,
+        "enableDeformedMessages": false,
+        "startDelayTime": "",
+        "server": "522b07f7dd585fbb",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 190,
+        "y": 100,
+        "wires": [
+            [],
+            [
+                "787e020765f92073"
+            ]
+        ]
+    },
+    {
+        "id": "f6cef43704610682",
+        "type": "mqtt in",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Akku Ladung in %",
+        "topic": "Haus/Keller/e3dc/battery/soc",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "88539582a8a310de",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 174,
+        "y": 380,
+        "wires": [
+            [
+                "f67cfd13c78d8186",
+                "62cb46be032a779c"
+            ]
+        ]
+    },
+    {
+        "id": "cch0000000000001",
+        "type": "function",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Schwellenwerte cachen",
+        "func": "global.set('schwellenwerte.' + msg.topic, msg.payload);\nreturn null;",
+        "outputs": 0,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "uic0000000000001",
+        "type": "ui-control",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Connect erkennen",
+        "ui": "e30d174c93bd6e4c",
+        "events": "connect",
+        "x": 190,
+        "y": 580,
+        "wires": [
+            [
+                "rst0000000000001"
+            ]
+        ]
+    },
+    {
+        "id": "rst0000000000001",
+        "type": "function",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "Werte wiederherstellen",
+        "func": "const topics = [\"akkuSchwelle\", \"einspeisungSchwelle\", \"verbrauchSchwelle\", \"aussenTempSchwelle\", \"boilerAkkuSchwelle\", \"boilerSolarSchwelle\"];\nconst out = topics.map(t => {\n    const v = global.get('schwellenwerte.' + t);\n    return (v === undefined) ? null : { topic: t, payload: v };\n});\nreturn out;",
+        "outputs": 6,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 200,
+        "y": 650,
+        "wires": [
+            [
+                "4148e36565bc2d45"
+            ],
+            [
+                "ff86a3a14e31a069"
+            ],
+            [
+                "60603fd82691733e"
+            ],
+            [
+                "1372ac278f70ba45"
+            ],
+            [
+                "dfec83dd3f7bdbc9"
+            ],
+            [
+                "abd3d04f3d804d5a"
+            ]
+        ],
+        "outputLabels": [
+            "akkuSchwelle",
+            "einspeisungSchwelle",
+            "verbrauchSchwelle",
+            "aussenTempSchwelle",
+            "boilerAkkuSchwelle",
+            "boilerSolarSchwelle"
+        ]
+    },
+    {
+        "id": "88539582a8a310de",
+        "type": "mqtt-broker",
+        "name": "Mosquitto",
+        "broker": "localhost",
+        "port": "1883",
+        "tls": "",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "9eb5b27fb34938fb",
+        "type": "ui-group",
+        "name": "Klimaanlagen + Boiler Boost Steuerung / Überwachung",
+        "page": "6415e79b2f6519f4",
+        "width": "12",
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "false",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "13d7f9e6fd4a0fe1",
+        "type": "pushover-keys",
+        "name": "Klimaanlage Hinweis ein- ausschalten"
+    },
+    {
+        "id": "522b07f7dd585fbb",
+        "type": "modbus-client",
+        "name": "Proxon Modbus USBtoRS485",
+        "clienttype": "serial",
+        "bufferCommands": true,
+        "stateLogEnabled": true,
+        "queueLogEnabled": false,
+        "failureLogEnabled": true,
+        "tcpHost": "127.0.0.1",
+        "tcpPort": 502,
+        "tcpType": "DEFAULT",
+        "serialPort": "/dev/ttyUSB0",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": "19200",
+        "serialDatabits": 8,
+        "serialStopbits": 1,
+        "serialParity": "even",
+        "serialConnectionDelay": 100,
+        "serialAsciiResponseStartDelimiter": "0x3A",
+        "unit_id": 1,
+        "commandDelay": 600,
+        "clientTimeout": 6000,
+        "reconnectOnTimeout": false,
+        "reconnectTimeout": 2000,
+        "parallelUnitIdsAllowed": true,
+        "showErrors": true,
+        "showWarnings": true,
+        "showLogs": true
+    },
+    {
+        "id": "e30d174c93bd6e4c",
+        "type": "ui-base",
+        "name": "Dashboard 2.0 - Diverse Dashboards",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "6415e79b2f6519f4",
+        "type": "ui-page",
+        "name": "Klimaanlage + Boiler Boost Status",
+        "ui": "e30d174c93bd6e4c",
+        "path": "/Klimaanlage Status",
+        "icon": "weather-cloudy",
+        "layout": "grid",
+        "theme": "3a38a59df764dc13",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 2,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "3a38a59df764dc13",
+        "type": "ui-theme",
+        "name": "Standardthema",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "674cfad381fc775a",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "@flowfuse/node-red-dashboard": "1.31.0",
+            "node-red-contrib-pushover": "0.2.0",
+            "node-red-contrib-modbus": "5.60.2"
+        }
+    },
+    {
+        "id": "acr0000000000001",
+        "type": "function",
+        "z": "3f4e1fa025a5cbae",
+        "g": "ee1018363dadf7e3",
+        "name": "AC-Erinnerung pruefen (Verbrauch-Schwelle)",
+        "func": "// AC-Erkennung + Erinnerung\n// Laeuft die Klimaanlage (Hausverbrauch > Verbrauch-Schwelle), obwohl die PV-Bedingung\n// nicht (mehr) erfuellt ist, wird periodisch eine Pushover-Erinnerung ausgeloest.\n// Typische Faelle: Anlage wurde von Hand eingeschaltet, oder das automatische\n// Ausschalten per Modbus hat nicht funktioniert.\n// Aufruf: bei jedem neuen Verbrauchswert und bei Aenderung der Verbrauch-Schwelle.\n\nvar verbrauch = flow.get('verbrauch') || 0;\nvar verbrauchSchwelle = flow.get('verbrauchSchwelle');\nif (verbrauchSchwelle === undefined) { verbrauchSchwelle = 1000; } // Default, bis der Regler bewegt wurde\n\n// Wird vom Node \"AC-Bedingung pruefen & schalten (Hysterese)\" bei jedem Durchlauf gesetzt\nvar bedingungOk = flow.get('acBedingungOk');\nif (bedingungOk === undefined) {\n    node.status({ fill: \"grey\", shape: \"ring\", text: \"warte auf PV-Bedingung\" });\n    return null;\n}\n\nvar acState = flow.get('acState') || false;\nvar acStateSeit = flow.get('acStateSeit') || 0;\n\n// --- Zeiten ---\nvar VERZOEGERUNG_MS = 5 * 60 * 1000;   // so lange muss der Zustand anstehen (filtert Herd, Waschmaschine & Co.)\nvar ERINNERUNG_MS   = 30 * 60 * 1000;  // Abstand zwischen zwei Erinnerungen\nvar MIN_EIN_MS      = 15 * 60 * 1000;  // wie im Schalt-Node: waehrend der Mindestlaufzeit keine Erinnerung\n\nvar jetzt = Date.now();\nvar acLaeuft = verbrauch > verbrauchSchwelle;\nvar inMindestlaufzeit = acState && (jetzt - acStateSeit) < MIN_EIN_MS;\nvar problem = acLaeuft && !bedingungOk && !inMindestlaufzeit;\n\nif (!problem) {\n    // Alles in Ordnung -> Zaehler zuruecksetzen\n    context.set('problemSeit', 0);\n    context.set('letzteErinnerung', 0);\n    var txt = acLaeuft ? \"AC läuft\" : \"AC aus\";\n    if (inMindestlaufzeit && !bedingungOk) { txt += \" (Mindestlaufzeit)\"; }\n    node.status({ fill: acLaeuft ? \"green\" : \"grey\", shape: \"dot\", text: txt + \" – \" + verbrauch + \" W\" });\n    return null;\n}\n\nvar problemSeit = context.get('problemSeit') || 0;\nif (problemSeit === 0) {\n    problemSeit = jetzt;\n    context.set('problemSeit', problemSeit);\n}\nvar dauerMin = Math.round((jetzt - problemSeit) / 60000);\n\nif ((jetzt - problemSeit) < VERZOEGERUNG_MS) {\n    node.status({ fill: \"yellow\", shape: \"ring\", text: \"Verdacht seit \" + dauerMin + \" Min. (\" + verbrauch + \" W)\" });\n    return null;\n}\n\nvar letzteErinnerung = context.get('letzteErinnerung') || 0;\nif (letzteErinnerung !== 0 && (jetzt - letzteErinnerung) < ERINNERUNG_MS) {\n    node.status({ fill: \"red\", shape: \"ring\", text: \"läuft ohne PV seit \" + dauerMin + \" Min.\" });\n    return null;\n}\ncontext.set('letzteErinnerung', jetzt);\n\n// Werte fuer den Meldungstext (gleiche Defaults wie im Schalt-Node)\nvar akku = flow.get('akku') || 0;\nvar einspeisung = flow.get('einspeisung') || 0;\nvar aussenTemp = flow.get('aussenTemp');\nvar akkuSchwelle = flow.get('akkuSchwelle');\nif (akkuSchwelle === undefined) { akkuSchwelle = 90; }\nvar einspeisungSchwelle = flow.get('einspeisungSchwelle');\nif (einspeisungSchwelle === undefined) { einspeisungSchwelle = 1200; }\nvar aussenTempSchwelle = flow.get('aussenTempSchwelle');\nif (aussenTempSchwelle === undefined) { aussenTempSchwelle = 25; }\nvar aussenTempText = (aussenTemp !== undefined) ? (aussenTemp + \" °C (Min. \" + aussenTempSchwelle + \" °C)\") : \"unbekannt\";\n\nvar statusText = \"Die Klimaanlage läuft seit \" + dauerMin + \" Min., obwohl die PV-Bedingung nicht erfüllt ist.\" +\n    \"\\nHausverbrauch: \" + verbrauch + \" W (Erkennung ab \" + verbrauchSchwelle + \" W)\" +\n    \"\\nAussentemperatur: \" + aussenTempText +\n    \"\\nAkku: \" + akku + \"% (Min. \" + akkuSchwelle + \"%)\" +\n    \"\\nEinspeisung: \" + einspeisung + \" W (Min. \" + einspeisungSchwelle + \" W)\" +\n    \"\\nNächste Erinnerung in \" + Math.round(ERINNERUNG_MS / 60000) + \" Min.\";\n\nnode.status({ fill: \"red\", shape: \"dot\", text: \"Erinnerung gesendet (\" + dauerMin + \" Min.)\" });\nreturn { payload: statusText, title: \"Erinnerung: Klimaanlage läuft ohne PV-Überschuss\", priority: 0 };\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1150,
+        "y": 440,
+        "wires": [
+            [
+                "d83ddbd0f2801f7d",
+                "bcb54d68bee46f36"
+            ]
+        ]
+    }
+]
