@@ -155,9 +155,9 @@ The defaults are used until a slider has been moved for the first time.
 - `README.md` – This documentation (English).
 - `README.de.md` – Documentation in German.
 - `flows/klimaanlage-boilerboost-pv-flow.json` – The exported Node-RED flow.
-- `pictures/2026-10-20-edi-teppert-com-Klimaanlage-BoilerBoost-PV-Titel-2048x820.jpg` – Picture in this repo
-- `pictures/2026-10-20-edi-teppert-com-Node-Red-Flow-Klimaanlage-BoilerBoost-1024x600.jpg` – Picture in this repo
-- `pictures/2026-10-20-edi-teppert-com-Node-Red-Dashboard-2.0-Klimaanlage-BoilerBoost-785x1024.jpg` – Picture in this repo
+- `pictures/2026-10-20-edi-teppert-com-Klimaanlage-BoilerBoost-PV-Titel.png` – Picture in this repo
+- `pictures/2026-10-20-edi-teppert-com-Node-Red-Flow-Klimaanlage-BoilerBoost.png` – Picture in this repo
+- `pictures/2026-10-20-edi-teppert-com-Node-Red-Dashboard-2.0-Klimaanlage-BoilerBoost.jpg` – Picture in this repo
 - `pictures/Edis-Blog-IoT-Logo.png` – Picture in this repo
 
 ## Flow Structure (Simplified)
