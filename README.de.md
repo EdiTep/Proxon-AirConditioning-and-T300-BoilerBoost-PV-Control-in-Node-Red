@@ -43,15 +43,6 @@ Die Werte kommen vom **E3/DC-Hauskraftwerk per MQTT** und direkt aus den **Proxo
   - Kühlung: Mindestlaufzeit **15 Min.**, Mindestpause **10 Min.**
   - Boiler Boost: Mindestlaufzeit **10 Min.**, Mindestpause **10 Min.**
 - **Pushover-Benachrichtigung** bei jedem automatischen Ein- und Ausschalten, inklusive aktueller Werte und Schwellen.
-
-<p align="center">
-  <a href="pictures/2026-10-20-edi-teppert-com-PushoverNachricht-Klimaanlage-BoilerBoost.jpg">
-    <img src="pictures/2026-10-20-edi-teppert-com-PushoverNachricht-Klimaanlage-BoilerBoost.jpg"
-         alt="Klimaanlage und Boiler Boost Pushover Nachricht" width="300"><br>
-    <em>Pushover-Nachricht beim automatischen AUSschalten des BoilerBoost</em>
-  </a>
-</p>
-
 - **Node-RED Dashboard 2.0**
   - Anzeigen: Außentemperatur, PV-Leistung, Hausverbrauch, Akku-Ladung.
   - Status-Kacheln: Betriebsart Wärmepumpe (Aus / Sommer / Winter / ECO), Klimafunktion, Boiler Boost.
@@ -138,6 +129,13 @@ Das komplette JSON-Array aus [`flows/Klimaanlage-BoilerBoost-PV-Flow.json`](flow
 ### 3. Benachrichtigungen einrichten
 
 - Einen der `pushover api`-Nodes öffnen und die Konfiguration `pushover-keys` mit Application Key und User Key auswählen bzw. anlegen.
+<p align="center">
+  <a href="pictures/2026-10-20-edi-teppert-com-PushoverNachricht-Klimaanlage-BoilerBoost.jpg">
+    <img src="pictures/2026-10-20-edi-teppert-com-PushoverNachricht-Klimaanlage-BoilerBoost.jpg"
+         alt="Klimaanlage und Boiler Boost Pushover Nachricht" width="300"><br>
+    <em>Pushover-Nachricht beim automatischen AUSschalten des BoilerBoost</em>
+  </a>
+</p>
 
 ### 4. Schwellwerte einstellen (Dashboard)
 
