@@ -9,6 +9,7 @@
 [![Powered by MQTT](https://img.shields.io/badge/Powered_by-MQTT-660066.svg?logo=mqtt&logoColor=white)](https://mosquitto.org/)
 [![Powered by Shelly](https://img.shields.io/badge/Powered_by-Shelly-4495D1.svg)](https://www.shelly.com/)
 [![Powered by Pushover](https://img.shields.io/badge/Powered_by-Pushover-0088FF.svg?logo=android&logoColor=white)](https://pushover.net/)
+[![Powered by Claude](https://img.shields.io/badge/Powered_by-Claude-D97757.svg?logo=claude&logoColor=white)](https://claude.ai/)
 
 [![Klimaanlage und Boiler Boost Titel](pictures/2026-10-20-edi-teppert-com-Klimaanlage-BoilerBoost-PV-Titel.png)](pictures/2026-10-20-edi-teppert-com-Klimaanlage-BoilerBoost-PV-Titel.png)
 
