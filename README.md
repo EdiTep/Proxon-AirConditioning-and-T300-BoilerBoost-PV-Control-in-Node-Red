@@ -191,6 +191,11 @@ The defaults are used until a slider has been moved for the first time.
 
 Found a bug or have an idea for improvement? Feel free to open an issue or submit a pull request. Ideas for enhancements: using house consumption for an "AC is running" detection, a periodic reminder when the conditions are no longer met, or supporting other PV systems.
 
+## Future planning / extension
+
+As the next extension for the cold season, the heating function of the Proxon is to be controlled via Modbus:
+Turns on only when *outside temperature* **<** threshold **AND** *Battery-SOC* **≥** threshold **AND** *PV power* **>** threshold.
+
 ## 📫 Contact & Collaboration
 
 I'm excited about **exchange, feedback, and collaboration** – especially on topics like:
