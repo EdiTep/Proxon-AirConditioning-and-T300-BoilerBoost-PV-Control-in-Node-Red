@@ -43,8 +43,8 @@ All values come from an **E3/DC home power station via MQTT** and directly from 
 <p align="center">
   <a href="pictures/2026-10-20-edi-teppert-com-PushoverNachricht-Klimaanlage-BoilerBoost.jpg">
     <img src="pictures/2026-10-20-edi-teppert-com-PushoverNachricht-Klimaanlage-BoilerBoost.jpg"
-         alt="Klimaanlage und Boiler Boost Pushover Nachricht" width="300"><br>
-    <em>Pushover-Nachricht beim automatischen AUSschalten des BoilerBoost</em>
+         alt="Cooling and Boiler Boost Pushover Message" width="300"><br>
+    <em>Pushover message when the BoilerBoost automatically shuts down</em>
   </a>
 </p>
 
